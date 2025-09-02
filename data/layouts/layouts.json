@@ -4420,6 +4420,26 @@
       "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/TestArea/border.bin",
       "blockdata_filepath": "data/layouts/TestArea/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_AREA_PLAYER_HOME_FLOOR2",
+      "name": "TestAreaPlayerHomeFloor2_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/TestAreaPlayerHomeFloor2/border.bin",
+      "blockdata_filepath": "data/layouts/TestAreaPlayerHomeFloor2/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_AREA_PLAYER_HOME",
+      "name": "TestAreaPlayerHome_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/TestAreaPlayerHome/border.bin",
+      "blockdata_filepath": "data/layouts/TestAreaPlayerHome/map.bin"
     }
   ]
 }
