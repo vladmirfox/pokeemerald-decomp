@@ -4440,6 +4440,26 @@
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/TestAreaPlayerHome/border.bin",
       "blockdata_filepath": "data/layouts/TestAreaPlayerHome/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_ROUTE",
+      "name": "TestRoute_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/TestRoute/border.bin",
+      "blockdata_filepath": "data/layouts/TestRoute/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_AREA_PTINTERIOR",
+      "name": "TestAreaPTInterior_Layout",
+      "width": 7,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/TestAreaPTInterior/border.bin",
+      "blockdata_filepath": "data/layouts/TestAreaPTInterior/map.bin"
     }
   ]
 }
