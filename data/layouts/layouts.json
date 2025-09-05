@@ -4444,7 +4444,7 @@
     {
       "id": "LAYOUT_TEST_ROUTE",
       "name": "TestRoute_Layout",
-      "width": 40,
+      "width": 20,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
@@ -4460,6 +4460,46 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/TestAreaPTInterior/border.bin",
       "blockdata_filepath": "data/layouts/TestAreaPTInterior/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_AREA_PTA4",
+      "name": "TestAreaPTA4_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/TestAreaPTA4/border.bin",
+      "blockdata_filepath": "data/layouts/TestAreaPTA4/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_AREA_PTA2",
+      "name": "TestAreaPTA2_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/TestAreaPTA2/border.bin",
+      "blockdata_filepath": "data/layouts/TestAreaPTA2/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_AREA_PTA3",
+      "name": "TestAreaPTA3_Layout",
+      "width": 20,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/TestAreaPTA3/border.bin",
+      "blockdata_filepath": "data/layouts/TestAreaPTA3/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_AREA_PTA1",
+      "name": "TestAreaPTA1_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lilycove",
+      "border_filepath": "data/layouts/TestAreaPTA1/border.bin",
+      "blockdata_filepath": "data/layouts/TestAreaPTA1/map.bin"
     }
   ]
 }

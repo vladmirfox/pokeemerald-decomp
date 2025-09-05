@@ -1168,3 +1168,11 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/TestRoute/scripts.inc"
 
 	.include "data/maps/TestAreaPTInterior/scripts.inc"
+
+	.include "data/maps/TestAreaPTA4/scripts.inc"
+
+	.include "data/maps/TestAreaPTA2/scripts.inc"
+
+	.include "data/maps/TestAreaPTA3/scripts.inc"
+
+	.include "data/maps/TestAreaPTA1/scripts.inc"
