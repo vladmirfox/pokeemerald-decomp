@@ -1,0 +1,166 @@
+mapscripts TestAreaPTInterior_MapScripts {
+	MAP_SCRIPT_ON_LOAD: PTInterior_MapScript_OnLoad
+	MAP_SCRIPT_ON_FRAME_TABLE: PTInterior_MapScript_OnFrame
+}
+
+script PTInterior_MapScript_OnLoad {
+	if(var(VAR_PT_STATE) == 0){
+		goto(PTInterior_EventScript_DoPT)
+	}
+}
+
+script PTInterior_MapScript_OnFrame {
+	if(var(VAR_SAFARI_ZONE_STATE) == 1){
+		goto(PTInterior_EventScript_ExitPT)
+	}
+}
+
+script PTInterior_EventScript_ExitPT {
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, PTInterior_Movement_ExitPT)
+	waitmovement(0)
+	releaseall
+}
+
+script PTInterior_EventScript_DoPT {
+	if(var(VAR_PT_STATE) == 0)
+	{
+		goto(PTInterior_EventScript_StartPT)
+	}
+	elif(var(VAR_PT_STATE) == 1)
+	{
+		goto(PTInterior_EventScript_DuringPT1)
+	}
+	elif(var(VAR_PT_STATE) == 2)
+	{
+		goto(PTInterior_EventScript_DuringPT2)
+	}
+	elif(var(VAR_PT_STATE) == 3)
+	{
+		goto(PTInterior_EventScript_GoToPT)
+	}
+	elif(var(VAR_PT_STATE) == 4)
+	{
+		goto(PTInterior_EventScript_EndPT)
+	}
+	end
+}
+
+script PTInterior_EventScript_StartPT {
+	lockall
+	msgbox(PTInterior_Text_ElderLiGreetings, MSGBOX_DEFAULT)
+	applymovement(OBJ_EVENT_ID_PLAYER, PTInterior_Movement_DuringPTMoveUp)
+	waitmovement(0)
+	setvar(VAR_PT_STATE, 2)
+	releaseall
+	end
+}
+
+script PTInterior_EventScript_DuringPT1 {
+	lockall
+	//msgbox(PTInterior_Text_DuringPTStop, MSGBOX_DEFAULT)
+	applymovement(OBJ_EVENT_ID_PLAYER, PTInterior_Movement_DuringPTStop)
+	waitmovement(0)
+	releaseall
+	end
+}
+
+script PTInterior_EventScript_DuringPT2 {
+	lockall
+	msgbox(PTInterior_Text_ElderLiAreReady, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES){
+		goto(PTInterior_EventScript_GoToPT)
+	}
+	elif(var(VAR_RESULT) == NO){
+		goto(PTInterior_EventScript_RejectPT)
+	}
+	releaseall
+	end
+}
+
+script PTInterior_EventScript_GoToPT {
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, PTInterior_Movement_DuringPTMoveUp)
+	releaseall
+	special(EnterSafariMode)
+	setvar(VAR_SAFARI_ZONE_STATE, 0)
+	warp(MAP_TEST_AREA_PTA1, 15, 1)
+	waitstate
+	end
+}
+
+script PTInterior_EventScript_AcceptPT {
+	lockall
+	setvar(VAR_PT_STATE, 3)
+	releaseall
+	end
+}
+
+script PTInterior_EventScript_RejectPT {
+	lockall
+	msgbox(PTInterior_Text_ElderLiTooBad, MSGBOX_DEFAULT)
+	applymovement(OBJ_EVENT_ID_PLAYER, PTInterior_Movement_DuringPTReject)
+	waitmovement(0)
+	releaseall
+	end
+}
+
+script PTInterior_EventScript_EndPT {
+	lockall
+	msgbox(PTInterior_Text_ElderLiCongrats, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script PTInterior_EventScript_EnterPT {
+	special(EnterSafariMode)
+	setvar(VAR_SAFARI_ZONE_STATE, 0)
+	warp(MAP_TEST_AREA_PTA1, 15, 1)
+	waitstate
+	end
+}
+
+script PTinterior_EventScript_ElderLi {
+	lockall
+	applymovement(1, PTInterior_Movement_ElderLi)
+	msgbox(PTInterior_Text_ElderLiGreetings, MSGBOX_DEFAULT)
+	waitmovement(1)
+	releaseall
+	end
+}
+
+text PTInterior_Text_ElderLiGreetings {
+	format("Welcome Aspirants!\nToday you shall take part in the\l{COLOR RED}{SHADOW LIGHT_RED}Proving Trial{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} whereupon you will be\lgiven the basic tools of a Trainer.\pBalls, Rod and Shoes shall be provided\nBUT only those of you who prove capable\lof Passing the Trial shall be deemed\lWorthy of a Pokedex.")
+}
+
+text PTInterior_Text_ElderLiAreReady {
+	format("Are you ready for your Trial?")
+}
+
+text PTInterior_Text_ElderLiTooBad {
+	format("What!? How dare you refuse this Honor!")
+}
+
+text PTInterior_Text_ElderLiCongrats {
+	format("Well done! {PLAYER} you have\nbrought back a Starter!")
+}
+
+movement PTInterior_Movement_ElderLi {
+	face_player
+}
+
+movement PTInterior_Movement_ExitPT {
+	face_down
+}
+
+movement PTInterior_Movement_DuringPTMoveUp {
+	face_left
+}
+
+movement PTInterior_Movement_DuringPTStop {
+	face_right
+}
+
+movement PTInterior_Movement_DuringPTReject {
+	face_up
+}

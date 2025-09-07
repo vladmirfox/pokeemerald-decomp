@@ -99,7 +99,9 @@
     "TestAreaPTA1",
     "TestAreaPTA2",
     "TestAreaPTA3",
-    "TestAreaPTA4"
+    "TestAreaPTA4",
+    "TestAreaCity",
+    "TestAreaForest"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

@@ -1,0 +1,412 @@
+mapscripts TestAreaPlayerHomeFloor2_MapScripts {
+    
+}
+
+script DoSleepPrompt {
+    lock
+    msgbox(DoSleep_Text, MSGBOX_DEFAULT)
+    dynmultichoice(0, 0, TRUE, 6, 0, DYN_MULTICHOICE_CB_NONE, DoSleepMorning_Text, DoSleepDay_Text, DoSleepEvening_Text, DoSleepNight_Text)
+    gettimeofday
+    if(var(VAR_RESULT) == 0)
+    {
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        fwdtime(8,0)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+    }
+    elif(var(VAR_RESULT) == 1)
+    {
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        fwdtime(12,0)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+    }
+    elif(var(VAR_RESULT) == 2)
+    {
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        fwdtime(20,0)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+    }
+    elif(var(VAR_RESULT) == 3)
+    {
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        fwdtime(22,0)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+    }
+    closemessage
+    release
+    end
+}
+
+text DoSleepMorning_Text {
+    format("Morning")
+}
+
+text DoSleepDay_Text {
+    format("Day")
+}
+
+text DoSleepEvening_Text {
+    format("Evening")
+}
+
+text DoSleepNight_Text {
+    format("Night")
+}
+
+text DoSleep_Text {
+    format("Sleep unitl?")
+}
+
+script ClansLoreBook {
+    lock
+    msgbox(BookPrompt_Text, MSGBOX_DEFAULT)
+    dynmultichoice(0, 0, TRUE, 5, 0, DYN_MULTICHOICE_CB_NONE, Insca_Text, Umbrum_Text, Wylkera_Text, Sprkwick_Text, Faesken_Text, Valknight_Text, Emburn_Text, Aeravis_Text, Mortus_Text, Gardia_Text, acTera_Text, Icisica_Text, Mansons_Text, Viadon_Text, Seera_Text, Bulduria_Text, Stelorum_Text, Aquiluma_Text)
+	if(var(VAR_RESULT) == 0)
+    {
+        msgbox(Clan1_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_VESPIQUEN, 10, 3)
+		msgbox(Clan1_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+    elif(var(VAR_RESULT) == 1)
+    {
+        msgbox(Clan2_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_HONCHKROW, 10, 3)
+		msgbox(Clan2_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 2)
+    {
+        msgbox(Clan3_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_DRAGONITE, 10, 3)
+		msgbox(Clan3_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 3)
+    {
+        msgbox(Clan4_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_ELECTIVIRE, 10, 3)
+		msgbox(Clan4_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 4)
+    {
+        msgbox(Clan5_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_GARDEVOIR, 10, 3)
+		msgbox(Clan5_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 5)
+    {
+        msgbox(Clan6_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_LUCARIO, 10, 3)
+		msgbox(Clan6_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 6)
+    {
+        msgbox(Clan7_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_MAGMORTAR, 10, 3)
+		msgbox(Clan7_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 7)
+    {
+        msgbox(Clan8_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_PIDGEOT, 10, 3)
+		msgbox(Clan8_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 8)
+    {
+        msgbox(Clan9_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_AEGISLASH, 10, 3)
+		msgbox(Clan9_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 9)
+    {
+        msgbox(Clan10_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_TORTERRA, 10, 3)
+		msgbox(Clan10_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 10)
+    {
+        msgbox(Clan11_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_GOLURK, 10, 3)
+		msgbox(Clan11_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 11)
+    {
+        msgbox(Clan12_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_ABOMASNOW, 10, 3)
+		msgbox(Clan12_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 12)
+    {
+        msgbox(Clan13_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_URSALUNA, 10, 3)
+		msgbox(Clan13_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 13)
+    {
+        msgbox(Clan14_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_SALAZZLE, 10, 3)
+		msgbox(Clan14_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 14)
+    {
+        msgbox(Clan15_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_ALAKAZAM, 10, 3)
+		msgbox(Clan15_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 15)
+    {
+        msgbox(Clan16_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_ONIX, 10, 3)
+		msgbox(Clan16_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 16)
+    {
+        msgbox(Clan17_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_METAGROSS, 10, 3)
+		msgbox(Clan17_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+	elif(var(VAR_RESULT) == 17)
+    {
+        msgbox(Clan18_Text, MSGBOX_DEFAULT)
+		showmonpic(SPECIES_LAPRAS, 10, 3)
+		msgbox(Clan18_2_Text, MSGBOX_DEFAULT)
+		hidemonpic
+    }
+    closemessage
+    release
+    end
+}
+
+text BookPrompt_Text {
+	format("Which of the 18 Clans of Astralis do you wish to learn about?")
+}
+
+text Insca_Text {
+	format("Incsa Clan")
+}
+
+text Umbrum_Text {
+	format("Umbrum Clan")
+}
+
+text Wylkera_Text {
+	format("Wylkera Clan")
+}
+
+text Sprkwick_Text {
+	format("Sprkwick Clan")
+}
+
+text Faesken_Text {
+	format("Faesken Clan")
+}
+
+text Valknight_Text {
+	format("Valknight Clan")
+}
+
+text Emburn_Text {
+	format("Emburn Clan")
+}
+
+text Aeravis_Text {
+	format("Aeravis Clan")
+}
+
+text Mortus_Text {
+	format("Mortus Clan")
+}
+
+text Gardia_Text {
+	format("Gardia Clan")
+}
+
+text acTera_Text {
+	format("ac Tera Clan")
+}
+
+text Icisica_Text {
+	format("Icisica Clan")
+}
+
+text Mansons_Text {
+	format("Mansons Clan")
+}
+
+text Viadon_Text {
+	format("Viadon Clan")
+}
+
+text Seera_Text {
+	format("Seera Clan")
+}
+
+text Bulduria_Text {
+	format("Bulduria Clan")
+}
+
+text Stelorum_Text {
+	format("Stelorum Clan")
+}
+
+text Aquiluma_Text {
+	format("Aquliuma Clan")
+}
+
+text Clan1_Text {
+	format("Incsa Clan: Bug-Type\nLocation: Hanaka Village\l")
+}
+
+text Clan2_Text {
+	format("Umbrum Clan: Dark-Type\nLocation: Fortuna City\l")
+}
+
+text Clan3_Text {
+	format("Wylkera Clan: Dragon-Type\nLocation: Wyrmshire & Wyrmspire Keep\l")
+}
+
+text Clan4_Text {
+	format("Sprkwick Clan: Electric-Type\nLocation: Hydroelectric Dam\l")
+}
+
+text Clan5_Text {
+	format("Faesken Clan: Fairy-Type\nLocation: Mysteria\l")
+}
+
+text Clan6_Text {
+	format("Valknight Clan: Fighting-Type\nLocation: Fort Valorite\l")
+}
+
+text Clan7_Text {
+	format("Emburn Clan: Fire-Type\nLocation: Cynderhail Sect\l")
+}
+
+text Clan8_Text {
+	format("Aeravis Clan: Flying-Type\nLocation: Hanaka Village\l")
+}
+
+text Clan9_Text {
+	format("Mortus Clan: Ghost-Type\nLocation: Great Desert\l")
+}
+
+text Clan10_Text {
+	format("Gardia Clan: Grass-Type\nLocation: Greensfield\l")
+}
+
+text Clan11_Text {
+	format("ac Tera Clan: Ground-Type\nLocation: Desert Oasis\l")
+}
+
+text Clan12_Text {
+	format("Icisica Clan: Ice-Type\nLocation: Cynderhail Sect\l")
+}
+
+text Clan13_Text {
+	format("Mansons Clan: Normal-Type\nLocation: Greensfield\l")
+}
+
+text Clan14_Text {
+	format("Viadon Clan: Poison-Type\nLocation: Fortuna City\l")
+}
+
+text Clan15_Text {
+	format("Seera Clan: Psychic-Type\nLocation: Mysteria\l")
+}
+
+text Clan16_Text {
+	format("Bulduria Clan: Rock-Type\nLocation: Nexium Caverns\l")
+}
+
+text Clan17_Text {
+	format("Stelorum Clan: Steel-Type\nLocation: Ironforge City\l")
+}
+
+text Clan18_Text {
+	format("Aquliuma Clan: Water-Type\nLocation: Marina Port\l")
+}
+
+text Clan1_2_Text {
+	format("Noble: Vespiquen\lRelic: Buginium Z")
+}
+
+text Clan2_2_Text {
+	format("Noble: Honchkrow\lRelic: Darkinium Z")
+}
+
+text Clan3_2_Text {
+	format("Noble: Dragonite\lRelic: Dragonium Z")
+}
+
+text Clan4_2_Text {
+	format("Noble: Electivire\lRelic: Electrium Z")
+}
+
+text Clan5_2_Text {
+	format("Noble: Gardevoir\lRelic: Fairium Z")
+}
+
+text Clan6_2_Text {
+	format("Noble: Lucario\lRelic: Fightinium Z")
+}
+
+text Clan7_2_Text {
+	format("Noble: Magmortar\lRelic: Firium Z")
+}
+
+text Clan8_2_Text {
+	format("Noble: Pidgeot\lRelic: Flyinium Z")
+}
+
+text Clan9_2_Text {
+	format("Noble: Aegislash\lRelic: Ghostium Z")
+}
+
+text Clan10_2_Text {
+	format("Noble: Torterra\lRelic: Grassium Z")
+}
+
+text Clan11_2_Text {
+	format("Noble: Golurk\lRelic: Groundium Z")
+}
+
+text Clan12_2_Text {
+	format("Noble: Abomasnow\lRelic: Icium Z")
+}
+
+text Clan13_2_Text {
+	format("Noble: Ursaluna\lRelic: Normalium Z")
+}
+
+text Clan14_2_Text {
+	format("Noble: Salazzle\lRelic: Poisonium Z")
+}
+
+text Clan15_2_Text {
+	format("Noble: Alakazam\lRelic: Psychium Z")
+}
+
+text Clan16_2_Text {
+	format("Noble: Onix\lRelic: Rockium Z")
+}
+
+text Clan17_2_Text {
+	format("Noble: Metagross\lRelic: Steelium Z")
+}
+
+text Clan18_2_Text {
+	format("Noble: Lapras\lRelic: Waterium Z")
+}

@@ -1,12 +1,12 @@
 {
-  "id": "MAP_TEST_ROUTE",
-  "name": "TestRoute",
-  "layout": "LAYOUT_TEST_ROUTE",
+  "id": "MAP_TEST_AREA_CITY",
+  "name": "TestAreaCity",
+  "layout": "LAYOUT_TEST_AREA_CITY",
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_TESTAREA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_ROUTE",
+  "map_type": "MAP_TYPE_CITY",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
@@ -14,20 +14,20 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_TEST_AREA",
-      "offset": 0,
+      "map": "MAP_TEST_ROUTE",
+      "offset": 32,
       "direction": "up"
     },
     {
-      "map": "MAP_TEST_AREA_CITY",
-      "offset": -32,
-      "direction": "down"
+      "map": "MAP_TEST_AREA_FOREST",
+      "offset": 12,
+      "direction": "up"
     }
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": 8,
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
+      "x": 6,
       "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -39,22 +39,9 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
       "x": 17,
-      "y": 37,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 14,
-      "y": 5,
+      "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

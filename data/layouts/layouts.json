@@ -4500,6 +4500,26 @@
       "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/TestAreaPTA1/border.bin",
       "blockdata_filepath": "data/layouts/TestAreaPTA1/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_AREA_CITY",
+      "name": "TestAreaCity_Layout",
+      "width": 40,
+      "height": 22,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/TestAreaCity/border.bin",
+      "blockdata_filepath": "data/layouts/TestAreaCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_AREA_FOREST",
+      "name": "TestAreaForest_Layout",
+      "width": 20,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/TestAreaForest/border.bin",
+      "blockdata_filepath": "data/layouts/TestAreaForest/map.bin"
     }
   ]
 }
