@@ -1,2 +1,3 @@
-TestAreaPTA1_MapScripts::
+TestAreaPTA1_Mapscripts::
 	.byte 0
+

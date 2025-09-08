@@ -1,17 +1,30 @@
 mapscripts TestAreaPTInterior_MapScripts {
-	MAP_SCRIPT_ON_LOAD: PTInterior_MapScript_OnLoad
-	MAP_SCRIPT_ON_FRAME_TABLE: PTInterior_MapScript_OnFrame
+	//MAP_SCRIPT_ON_LOAD: PTInterior_MapScript_OnLoad
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_SAFARI_ZONE_STATE, 1: PTInterior_MapScript_OnFrame
+		VAR_PT_STATE, 0: PTInterior_EventScript_StartPT
+		//VAR_PT_STATE, 1: PTInterior_EventScript_DuringPT1
+		//VAR_PT_STATE, 2: PTInterior_EventScript_DuringPT2
+		//VAR_PT_STATE, 3: PTInterior_EventScript_GoToPT
+		VAR_PT_STATE, 4: PTInterior_EventScript_EndPT
+		]
 }
 
-script PTInterior_MapScript_OnLoad {
-	if(var(VAR_PT_STATE) == 0){
-		goto(PTInterior_EventScript_DoPT)
-	}
-}
+//script PTInterior_MapScript_OnLoad {
+//	if(var(VAR_PT_STATE) == 0){
+//		goto(PTInterior_EventScript_DoPT)
+//	}
+//	else{
+//		return
+//	}
+//}
 
 script PTInterior_MapScript_OnFrame {
 	if(var(VAR_SAFARI_ZONE_STATE) == 1){
 		goto(PTInterior_EventScript_ExitPT)
+	}
+	else{
+		return
 	}
 }
 
@@ -107,7 +120,11 @@ script PTInterior_EventScript_RejectPT {
 
 script PTInterior_EventScript_EndPT {
 	lockall
+	applymovement(1, PTInterior_Movement_ElderLi)
+	waitmovement(1)
 	msgbox(PTInterior_Text_ElderLiCongrats, MSGBOX_DEFAULT)
+	applymovement(1, PTInterior_Movement_Congrats)
+	waitmovement(1)
 	releaseall
 	end
 }
@@ -149,18 +166,30 @@ movement PTInterior_Movement_ElderLi {
 	face_player
 }
 
+movement PTInterior_Movement_Congrats {
+	face_down
+	walk_down
+	face_right
+	walk_right
+	face_down
+}
+
 movement PTInterior_Movement_ExitPT {
 	face_down
 }
 
 movement PTInterior_Movement_DuringPTMoveUp {
-	face_left
+	face_up
+	walk_up
 }
 
 movement PTInterior_Movement_DuringPTStop {
-	face_right
+	face_up
+	walk_up
+	walk_up
 }
 
 movement PTInterior_Movement_DuringPTReject {
-	face_up
+	face_down
+	walk_down
 }
