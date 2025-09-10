@@ -1,18 +1,23 @@
 mapscripts TestAreaPTInterior_MapScripts {
-	//MAP_SCRIPT_ON_LOAD: PTInterior_MapScript_OnLoad
+	//MAP_SCRIPT_ON_LOAD{
+	//	goto(PTInterior_MapScript_OnLoad)
+	//} 
+	//MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+	//	VAR_PT_STATE, 3: PTInterior_MapScript_OnFrame
+	//]
 	MAP_SCRIPT_ON_FRAME_TABLE [
-		VAR_SAFARI_ZONE_STATE, 1: PTInterior_MapScript_OnFrame
+		//VAR_SAFARI_ZONE_STATE, 1: PTInterior_MapScript_OnFrame
 		VAR_PT_STATE, 0: PTInterior_EventScript_StartPT
 		//VAR_PT_STATE, 1: PTInterior_EventScript_DuringPT1
 		//VAR_PT_STATE, 2: PTInterior_EventScript_DuringPT2
-		//VAR_PT_STATE, 3: PTInterior_EventScript_GoToPT
-		VAR_PT_STATE, 4: PTInterior_EventScript_EndPT
+		//VAR_PT_STATE, 3: PTInterior_MapScript_OnFrame
+		//VAR_PT_STATE, 4: PTInterior_EventScript_EndPT
 		]
 }
 
 //script PTInterior_MapScript_OnLoad {
-//	if(var(VAR_PT_STATE) == 0){
-//		goto(PTInterior_EventScript_DoPT)
+//	if(flag(FLAG_SYS_STARTER_GET) == TRUE){
+//		goto(PTInterior_EventScript_CheckDone)
 //	}
 //	else{
 //		return
@@ -22,6 +27,12 @@ mapscripts TestAreaPTInterior_MapScripts {
 script PTInterior_MapScript_OnFrame {
 	if(var(VAR_SAFARI_ZONE_STATE) == 1){
 		goto(PTInterior_EventScript_ExitPT)
+	}
+	elif(var(VAR_PT_STATE) == 3){
+		goto(PTInterior_EventScript_CheckDone)
+	}
+	elif(var(VAR_PT_STATE) == 4){
+		goto(PTInterior_EventScript_EndPT)
 	}
 	else{
 		return
@@ -50,7 +61,7 @@ script PTInterior_EventScript_DoPT {
 	}
 	elif(var(VAR_PT_STATE) == 3)
 	{
-		goto(PTInterior_EventScript_GoToPT)
+		goto(PTInterior_EventScript_CheckDone)
 	}
 	elif(var(VAR_PT_STATE) == 4)
 	{
@@ -64,15 +75,22 @@ script PTInterior_EventScript_StartPT {
 	msgbox(PTInterior_Text_ElderLiGreetings, MSGBOX_DEFAULT)
 	applymovement(OBJ_EVENT_ID_PLAYER, PTInterior_Movement_DuringPTMoveUp)
 	waitmovement(0)
-	setvar(VAR_PT_STATE, 2)
+	setvar(VAR_PT_STATE, 1)
 	releaseall
 	end
 }
 
 script PTInterior_EventScript_DuringPT1 {
 	lockall
-	//msgbox(PTInterior_Text_DuringPTStop, MSGBOX_DEFAULT)
 	applymovement(OBJ_EVENT_ID_PLAYER, PTInterior_Movement_DuringPTStop)
+	waitmovement(0)
+	releaseall
+	end
+}
+
+script PTInterior_EventScript_GotStarter {
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, PTInterior_Movement_GotStarter)
 	waitmovement(0)
 	releaseall
 	end
@@ -97,16 +115,20 @@ script PTInterior_EventScript_GoToPT {
 	releaseall
 	special(EnterSafariMode)
 	setvar(VAR_SAFARI_ZONE_STATE, 0)
+	setvar(VAR_PT_STATE, 3)
 	warp(MAP_TEST_AREA_PTA1, 15, 1)
 	waitstate
 	end
 }
 
-script PTInterior_EventScript_AcceptPT {
-	lockall
-	setvar(VAR_PT_STATE, 3)
-	releaseall
-	end
+script PTInterior_EventScript_CheckDone {
+	if(flag(FLAG_SYS_STARTER_GET) == true){
+		setvar(VAR_PT_STATE, 4)
+		goto(PTInterior_EventScript_EndPT)
+	}
+	else{
+		return
+	}
 }
 
 script PTInterior_EventScript_RejectPT {
@@ -138,12 +160,30 @@ script PTInterior_EventScript_EnterPT {
 }
 
 script PTinterior_EventScript_ElderLi {
-	lockall
-	applymovement(1, PTInterior_Movement_ElderLi)
-	msgbox(PTInterior_Text_ElderLiGreetings, MSGBOX_DEFAULT)
-	waitmovement(1)
-	releaseall
-	end
+	if((flag(FLAG_SYS_STARTER_GET) == TRUE) && flag(FLAG_START_KIT) == TRUE){
+		lockall
+		applymovement(1, PTInterior_Movement_ElderLi)
+		waitmovement(1)
+		msgbox(PTInterior_Text_ElderLiCongrats, MSGBOX_DEFAULT)
+		releaseall
+		end
+	}elif(flag(FLAG_SYS_STARTER_GET) == TRUE){
+		lockall
+		setflag(FLAG_SYS_POKEMON_GET)
+		clearflag(FLAG_TEMP_HIDE_FOLLOWER)
+		applymovement(1, PTInterior_Movement_ElderLi)
+		waitmovement(1)
+		msgbox(PTInterior_Text_ElderLiCongrats, MSGBOX_DEFAULT)
+		applymovement(1, PTInterior_Movement_Congrats)
+		waitmovement(1)
+		setrespawn(HEAL_LOCATION_TEST_AREA)
+		setflag(FLAG_START_KIT)
+		releaseall
+		end
+	}elif(flag(FLAG_SYS_STARTER_GET) == FALSE){
+		setvar(VAR_PT_STATE, 4)
+		goto(PTInterior_EventScript_DuringPT2)
+	}
 }
 
 text PTInterior_Text_ElderLiGreetings {
@@ -181,12 +221,19 @@ movement PTInterior_Movement_ExitPT {
 movement PTInterior_Movement_DuringPTMoveUp {
 	face_up
 	walk_up
+	walk_up
 }
 
 movement PTInterior_Movement_DuringPTStop {
 	face_up
 	walk_up
 	walk_up
+}
+
+movement PTInterior_Movement_GotStarter {
+	face_down
+	walk_down
+	walk_down
 }
 
 movement PTInterior_Movement_DuringPTReject {

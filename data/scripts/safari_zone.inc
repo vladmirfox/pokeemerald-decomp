@@ -11,6 +11,25 @@ SafariZone_EventScript_Exit::
 	waitstate
 	end
 
+PT_EventScript_OutOfBallsMidBattle::
+	setvar VAR_SAFARI_ZONE_STATE, 1
+	setvar VAR_PT_STATE, 3
+	setflag FLAG_SYS_STARTER_GET
+	special ExitSafariMode
+	setwarp MAP_TEST_AREA_PTINTERIOR, 3, 1
+	releaseall
+	end
+
+PT_EventScript_Exit::
+	setvar VAR_SAFARI_ZONE_STATE, 1
+	setvar VAR_PT_STATE, 3
+	setflag FLAG_SYS_STARTER_GET
+	special ExitSafariMode
+	warp MAP_TEST_AREA_PTINTERIOR, 3, 1
+	waitstate
+	//releaseall
+	end
+
 SafariZone_EventScript_RetirePrompt::
 	lockall
 	msgbox SafariZone_Text_WouldYouLikeToExit, MSGBOX_YESNO
@@ -19,7 +38,7 @@ SafariZone_EventScript_RetirePrompt::
 	end
 
 SafariZone_EventScript_Retire::
-	goto SafariZone_EventScript_Exit
+	goto PT_EventScript_Exit
 
 SafariZone_EventScript_TimesUp::
 	lockall
@@ -28,7 +47,7 @@ SafariZone_EventScript_TimesUp::
 	waitmessage
 	waitbuttonpress
 	releaseall
-	goto SafariZone_EventScript_Exit
+	goto PT_EventScript_Exit
 
 SafariZone_EventScript_OutOfBalls::
 	lockall
@@ -37,7 +56,16 @@ SafariZone_EventScript_OutOfBalls::
 	waitmessage
 	waitbuttonpress
 	releaseall
-	goto SafariZone_EventScript_Exit
+	goto PT_EventScript_Exit
+
+PT_EventScript_OutOfBalls::
+	lockall
+	playse SE_DING_DONG
+	message SafariZone_Text_OutOfBalls
+	waitmessage
+	waitbuttonpress
+	releaseall
+	goto PT_EventScript_Exit
 
 EventScript_PokeBlockFeeder::
 	lockall

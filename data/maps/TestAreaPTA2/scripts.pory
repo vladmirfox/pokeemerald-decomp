@@ -1,3 +1,47 @@
-mapscripts TestAreaPTA2_Mapscripts {
-	
+mapscripts TestAreaPTA2_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION{
+		goto(PTOutsideA2_OnTransition)
+	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_PT_STATE, 4: PTOutsideA2_EventScript_HideMon
+		VAR_SAFARI_ZONE_STATE, 2: PTOutsideA2_EventScript_SetExit
+	]
 }
+
+script PTOutsideA2_OnTransition {
+	setflag(FLAG_TEMP_HIDE_FOLLOWER)
+	if(var(VAR_SAFARI_ZONE_STATE) == 2){
+		goto(PTOutsideA2_EventScript_EnterPT)
+	}
+	else{
+		end
+	}
+}
+
+script PTOutsideA2_EventScript_HideMon {
+	if(var(VAR_PT_STATE) == 4){
+		setflag(FLAG_TEMP_HIDE_FOLLOWER)
+		setvar(VAR_PT_STATE, 5)
+	}else{
+		end
+	}
+}
+
+script PTOutsideA2_EventScript_EnterPT {
+	lockall
+	special(EnterSafariMode)
+	setvar(VAR_SAFARI_ZONE_STATE, 0)
+	releaseall
+	end
+}
+
+script PTOutsideA2_EventScript_SetExit {
+	setvar(VAR_SAFARI_ZONE_STATE, 1)
+	setvar(VAR_PT_STATE, 4)
+	setflag(FLAG_SYS_STARTER_GET)
+	special(ExitSafariMode)
+	warp(MAP_TEST_AREA_PTINTERIOR, 4, 1)
+	releaseall
+	waitstate
+	end
+} 

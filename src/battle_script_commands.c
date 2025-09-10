@@ -13941,7 +13941,7 @@ static void Cmd_handleballthrow(void)
                 maxShakes = BALL_3_SHAKES_SUCCESS;
             }
 
-            if (ballId == BALL_MASTER)
+            if (ballId == BALL_MASTER || BALL_SAFARI)
             {
                 shakes = maxShakes;
             }

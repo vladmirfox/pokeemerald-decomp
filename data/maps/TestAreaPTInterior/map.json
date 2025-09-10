@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PTInterior_EventScript_DuringPT2",
+      "script": "PTinterior_EventScript_ElderLi",
       "flag": "0"
     },
     {
@@ -117,11 +117,11 @@
     {
       "type": "trigger",
       "x": 3,
-      "y": 3,
+      "y": 2,
       "elevation": 0,
       "var": "VAR_PT_STATE",
-      "var_value": "4",
-      "script": "PTInterior_EventScript_EndPT"
+      "var_value": "5",
+      "script": "PTInterior_EventScript_GotStarter"
     }
   ],
   "bg_events": [

@@ -1,33 +1,33 @@
-mapscripts TestAreaPTA1_MapScripts {
+mapscripts TestAreaPTA4_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION{
-		goto(PTOutsideA1_OnTransition)
+		goto(PTOutsideA4_OnTransition)
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
-		VAR_PT_STATE, 3: PTOutside_EventScript_HideMon
-		VAR_SAFARI_ZONE_STATE, 2: PTOutsideA1_EventScript_SetExit
+		VAR_PT_STATE, 6: PTOutsideA4_EventScript_HideMon
+		VAR_SAFARI_ZONE_STATE, 2: PTOutsideA4_EventScript_SetExit
 	]
 }
 
-script PTOutsideA1_OnTransition {
+script PTOutsideA4_OnTransition {
 	setflag(FLAG_TEMP_HIDE_FOLLOWER)
 	if(var(VAR_SAFARI_ZONE_STATE) == 2){
-		goto(PTOutsideA1_EventScript_EnterPT)
+		goto(PTOutsideA4_EventScript_EnterPT)
 	}
 	else{
 		end
 	}
 }
 
-script PTOutside_EventScript_HideMon {
-	if(var(VAR_PT_STATE) == 3){
+script PTOutsideA4_EventScript_HideMon {
+	if(var(VAR_PT_STATE) == 6){
 		setflag(FLAG_TEMP_HIDE_FOLLOWER)
-		setvar(VAR_PT_STATE, 4)
+		setvar(VAR_PT_STATE, 7)
 	}else{
 		end
 	}
 }
 
-script PTOutsideA1_EventScript_EnterPT {
+script PTOutsideA4_EventScript_EnterPT {
 	lockall
 	special(EnterSafariMode)
 	setvar(VAR_SAFARI_ZONE_STATE, 0)
@@ -35,7 +35,7 @@ script PTOutsideA1_EventScript_EnterPT {
 	end
 }
 
-script PTOutsideA1_EventScript_SetExit {
+script PTOutsideA4_EventScript_SetExit {
 	setvar(VAR_SAFARI_ZONE_STATE, 1)
 	setvar(VAR_PT_STATE, 4)
 	setflag(FLAG_SYS_STARTER_GET)
