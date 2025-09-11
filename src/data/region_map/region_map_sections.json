@@ -1234,6 +1234,62 @@
     {
       "id": "MAPSEC_TESTAREA",
       "name": "Test Area"
+    },
+    {
+      "id": "MAPSEC_WYRMSHIRE",
+      "name": "WYRMSHIRE"
+    },
+    {
+      "id": "MAPSEC_HANAKA_VILLAGE",
+      "name": "HANAKA VILLAGE"
+    },
+    {
+      "id": "MAPSEC_GREENSFIELD",
+      "name": "GREENSFIELD"
+    },
+    {
+      "id": "MAPSEC_MARINA_PORT",
+      "name": "MARINA PORT"
+    },
+    {
+      "id": "MAPSEC_FORT_VALORITE",
+      "name": "FORT VALORITE"
+    },
+    {
+      "id": "MAPSEC_MYTHERIA",
+      "name": "MYTHERIA"
+    },
+    {
+      "id": "MAPSEC_FORTUNA_CITY",
+      "name": "FORTUNA CITY"
+    },
+    {
+      "id": "MAPSEC_GREAT_DESERT",
+      "name": "GREAT DESERT"
+    },
+    {
+      "id": "MAPSEC_DESERT_OASIS",
+      "name": "DESERT OASIS"
+    },
+    {
+      "id": "MAPSEC_CYNDERHAIL_SECT",
+      "name": "CYNDERHAIL SECT"
+    },
+    {
+      "id": "MAPSEC_WYRMSPIRE_KEEP",
+      "name": "WYRMSPIRE KEEP"
+    },
+    {
+      "id": "MAPSEC_HYDROELEC_DAM",
+      "name": "HYDROELEC DAM"
+    },
+    {
+      "id": "MAPSEC_VALORITE_WOODS",
+      "name": "VALORITE WOODS"
+    },
+    {
+      "id": "MAPSEC_NEXIUM_CAVERNS",
+      "name": "NEXIUM CAVERNS"
     }
   ]
 }
