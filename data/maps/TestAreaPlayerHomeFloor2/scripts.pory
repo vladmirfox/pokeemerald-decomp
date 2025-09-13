@@ -4,36 +4,74 @@ mapscripts TestAreaPlayerHomeFloor2_MapScripts {
 
 script DoSleepPrompt {
     lock
-    msgbox(DoSleep_Text, MSGBOX_DEFAULT)
-    dynmultichoice(0, 0, TRUE, 6, 0, DYN_MULTICHOICE_CB_NONE, DoSleepMorning_Text, DoSleepDay_Text, DoSleepEvening_Text, DoSleepNight_Text)
-    gettimeofday
-    if(var(VAR_RESULT) == 0)
-    {
-        fadescreenswapbuffers(FADE_TO_BLACK)
-        fwdtime(8,0)
-        fadescreenswapbuffers(FADE_FROM_BLACK)
-    }
-    elif(var(VAR_RESULT) == 1)
-    {
-        fadescreenswapbuffers(FADE_TO_BLACK)
-        fwdtime(12,0)
-        fadescreenswapbuffers(FADE_FROM_BLACK)
-    }
-    elif(var(VAR_RESULT) == 2)
-    {
-        fadescreenswapbuffers(FADE_TO_BLACK)
-        fwdtime(20,0)
-        fadescreenswapbuffers(FADE_FROM_BLACK)
-    }
-    elif(var(VAR_RESULT) == 3)
-    {
-        fadescreenswapbuffers(FADE_TO_BLACK)
-        fwdtime(22,0)
-        fadescreenswapbuffers(FADE_FROM_BLACK)
-    }
-    closemessage
-    release
-    end
+	if(var(VAR_WYRMSHIRE_STATE) == 0){
+		msgbox(DoSleep_Text, MSGBOX_DEFAULT)
+    	dynmultichoice(0, 0, TRUE, 6, 0, DYN_MULTICHOICE_CB_NONE, DoSleepMorning_Text, DoSleepDay_Text, DoSleepEvening_Text, DoSleepNight_Text)
+    	gettimeofday
+    	if(var(VAR_RESULT) == 0)
+    	{
+        	fadescreenswapbuffers(FADE_TO_BLACK)
+			setflag(FLAG_AIDE_ASLEEP)
+        	fwdtime(8,0)
+        	fadescreenswapbuffers(FADE_FROM_BLACK)
+    	}
+    	elif(var(VAR_RESULT) == 1)
+    	{
+        	fadescreenswapbuffers(FADE_TO_BLACK)
+			setflag(FLAG_AIDE_ASLEEP)
+        	fwdtime(12,0)
+        	fadescreenswapbuffers(FADE_FROM_BLACK)
+    	}
+    	elif(var(VAR_RESULT) == 2)
+    	{
+        	fadescreenswapbuffers(FADE_TO_BLACK)
+			setflag(FLAG_AIDE_ASLEEP)
+        	fwdtime(20,0)
+        	fadescreenswapbuffers(FADE_FROM_BLACK)
+    	}
+    	elif(var(VAR_RESULT) == 3)
+    	{
+        	fadescreenswapbuffers(FADE_TO_BLACK)
+			setflag(FLAG_AIDE_ASLEEP)
+        	fwdtime(22,0)
+        	fadescreenswapbuffers(FADE_FROM_BLACK)
+    	}
+		setvar(VAR_WYRMSHIRE_STATE, 1)
+		closemessage
+    	release
+		end
+	}else{
+    	msgbox(DoSleep_Text, MSGBOX_DEFAULT)
+    	dynmultichoice(0, 0, TRUE, 6, 0, DYN_MULTICHOICE_CB_NONE, DoSleepMorning_Text, DoSleepDay_Text, DoSleepEvening_Text, DoSleepNight_Text)
+    	gettimeofday
+    	if(var(VAR_RESULT) == 0)
+    	{
+        	fadescreenswapbuffers(FADE_TO_BLACK)
+        	fwdtime(8,0)
+        	fadescreenswapbuffers(FADE_FROM_BLACK)
+    	}
+    	elif(var(VAR_RESULT) == 1)
+    	{
+        	fadescreenswapbuffers(FADE_TO_BLACK)
+        	fwdtime(12,0)
+        	fadescreenswapbuffers(FADE_FROM_BLACK)
+    	}
+    	elif(var(VAR_RESULT) == 2)
+    	{
+        	fadescreenswapbuffers(FADE_TO_BLACK)
+        	fwdtime(20,0)
+        	fadescreenswapbuffers(FADE_FROM_BLACK)
+    	}
+    	elif(var(VAR_RESULT) == 3)
+    	{
+        	fadescreenswapbuffers(FADE_TO_BLACK)
+        	fwdtime(22,0)
+        	fadescreenswapbuffers(FADE_FROM_BLACK)
+    	}
+    	closemessage
+    	release
+    	end
+	}
 }
 
 text DoSleepMorning_Text {
@@ -59,7 +97,7 @@ text DoSleep_Text {
 script ClansLoreBook {
     lock
     msgbox(BookPrompt_Text, MSGBOX_DEFAULT)
-    dynmultichoice(0, 0, TRUE, 5, 0, DYN_MULTICHOICE_CB_NONE, Insca_Text, Umbrum_Text, Wylkera_Text, Sprkwick_Text, Faesken_Text, Valknight_Text, Emburn_Text, Aeravis_Text, Mortus_Text, Gardia_Text, acTera_Text, Icisica_Text, Mansons_Text, Viadon_Text, Seera_Text, Bulduria_Text, Stelorum_Text, Aquiluma_Text)
+    dynmultichoice(0, 0, TRUE, 5, 0, DYN_MULTICHOICE_CB_NONE, Insca_Text, Umbrum_Text, Wylkera_Text, Sprkwick_Text, Faesken_Text, Valknight_Text, Emburn_Text, Aeravis_Text, Mortus_Text, Gardia_Text, acTera_Text, Icisica_Text, Mansons_Text, Viadon_Text, Seera_Text, Bulduria_Text, Stelorum_Text, Aquiluma_Text, Cancel_Text)
 	if(var(VAR_RESULT) == 0)
     {
         msgbox(Clan1_Text, MSGBOX_DEFAULT)
@@ -186,6 +224,12 @@ script ClansLoreBook {
 		msgbox(Clan18_2_Text, MSGBOX_DEFAULT)
 		hidemonpic
     }
+	elif(var(VAR_RESULT) == 18)
+	{
+		closemessage
+		release
+		end
+	}
     closemessage
     release
     end
@@ -265,6 +309,10 @@ text Stelorum_Text {
 
 text Aquiluma_Text {
 	format("Aquliuma Clan")
+}
+
+text Cancel_Text {
+	format("Close Book")
 }
 
 text Clan1_Text {

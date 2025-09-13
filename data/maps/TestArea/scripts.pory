@@ -1,0 +1,47 @@
+mapscripts TestArea_MapScripts {
+    
+}
+
+script TestArea_Sign1 {
+    lockall
+    msgbox(TestArea_Text_Sign1, MSGBOX_SIGN)
+    releaseall
+    end
+}
+
+script TestArea_Sign2 {
+    lockall
+    msgbox(TestArea_Text_Sign2, MSGBOX_SIGN)
+    releaseall
+    end
+}
+
+script TestArea_Sign3 {
+    lockall
+    msgbox(TestArea_Text_Sign3, MSGBOX_SIGN)
+    releaseall
+    end    
+}
+
+script TestArea_Sign4 {
+    lockall
+    msgbox(TestArea_Text_Sign4, MSGBOX_SIGN)
+    releaseall
+    end    
+}
+
+text TestArea_Text_Sign1 {
+    format("Aspirant Dorms")
+}
+
+text TestArea_Text_Sign2 {
+    format("Proving Trial Entrance")
+}
+
+text TestArea_Text_Sign3 {
+    format("Wyrmshire - The birthplace of DRAGONS.")
+}
+
+text TestArea_Text_Sign4 {
+    format("Nexium Caverns")
+}

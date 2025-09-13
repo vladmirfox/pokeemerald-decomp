@@ -1967,7 +1967,7 @@
       "width": 11,
       "height": 9,
       "primary_tileset": "gTileset_SecretBase",
-      "secondary_tileset": "gTileset_SecretBaseRedCave",
+      "secondary_tileset": "gTileset_SecretBaseTree",
       "border_filepath": "data/layouts/SecretBase_RedCave1/border.bin",
       "blockdata_filepath": "data/layouts/SecretBase_RedCave1/map.bin"
     },
@@ -4520,6 +4520,86 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/TestAreaForest/border.bin",
       "blockdata_filepath": "data/layouts/TestAreaForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROVING_GROUND_A4",
+      "name": "ProvingGroundA4_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ProvingGroundA4/border.bin",
+      "blockdata_filepath": "data/layouts/ProvingGroundA4/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROVING_TRIAL",
+      "name": "ProvingTrial_Layout",
+      "width": 7,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/ProvingTrial/border.bin",
+      "blockdata_filepath": "data/layouts/ProvingTrial/map.bin"
+    },
+    {
+      "id": "LAYOUT_WYRMSHIRE",
+      "name": "Wyrmshire_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lilycove",
+      "border_filepath": "data/layouts/Wyrmshire/border.bin",
+      "blockdata_filepath": "data/layouts/Wyrmshire/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROVING_GROUND_A3",
+      "name": "ProvingGroundA3_Layout",
+      "width": 20,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ProvingGroundA3/border.bin",
+      "blockdata_filepath": "data/layouts/ProvingGroundA3/map.bin"
+    },
+    {
+      "id": "LAYOUT_ASPIRANT_DORMS_F2",
+      "name": "AspirantDormsF2_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/AspirantDormsF2/border.bin",
+      "blockdata_filepath": "data/layouts/AspirantDormsF2/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROVING_GROUND_A1",
+      "name": "ProvingGroundA1_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lilycove",
+      "border_filepath": "data/layouts/ProvingGroundA1/border.bin",
+      "blockdata_filepath": "data/layouts/ProvingGroundA1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ASPIRANT_DORMS",
+      "name": "AspirantDorms_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/AspirantDorms/border.bin",
+      "blockdata_filepath": "data/layouts/AspirantDorms/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROVING_GROUND_A2",
+      "name": "ProvingGroundA2_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/ProvingGroundA2/border.bin",
+      "blockdata_filepath": "data/layouts/ProvingGroundA2/map.bin"
     }
   ]
 }

@@ -1180,3 +1180,19 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/TestAreaCity/scripts.inc"
 
 	.include "data/maps/TestAreaForest/scripts.inc"
+
+	.include "data/maps/AspirantDormsF2/scripts.inc"
+
+	.include "data/maps/AspirantDorms/scripts.inc"
+
+	.include "data/maps/ProvingGroundA2/scripts.inc"
+
+	.include "data/maps/Wyrmshire/scripts.inc"
+
+	.include "data/maps/ProvingGroundA1/scripts.inc"
+
+	.include "data/maps/ProvingGroundA4/scripts.inc"
+
+	.include "data/maps/ProvingGroundA3/scripts.inc"
+
+	.include "data/maps/ProvingTrial/scripts.inc"

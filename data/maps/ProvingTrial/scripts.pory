@@ -1,0 +1,102 @@
+mapscripts ProvingTrial_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_PT_STATE, 0: ProvingTrial_EventScript_StartPT
+    ]
+}
+
+script ProvingTrial_EventScript_StartPT {
+	lockall
+	msgbox(PTInterior_Text_ElderLiGreetings, MSGBOX_DEFAULT)
+	applymovement(OBJ_EVENT_ID_PLAYER, PTInterior_Movement_DuringPTMoveUp)
+	waitmovement(0)
+	setvar(VAR_PT_STATE, 1)
+	releaseall
+	end
+}
+
+script ProvingTrial_EventScript_DuringPT2 {
+	lockall
+	msgbox(PTInterior_Text_ElderLiAreReady, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES){
+		goto(PTInterior_EventScript_GoToPT)
+	}
+	elif(var(VAR_RESULT) == NO){
+		goto(PTInterior_EventScript_RejectPT)
+	}
+	releaseall
+	end
+}
+
+script ProvingTrial_EventScript_GoToPT {
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, PTInterior_Movement_DuringPTMoveUp)
+	releaseall
+	special(EnterSafariMode)
+	setvar(VAR_SAFARI_ZONE_STATE, 0)
+	setvar(VAR_PT_STATE, 3)
+	warp(MAP_TEST_AREA_PTA1, 15, 1)
+	waitstate
+	end
+}
+
+script ProvingTrial_EventScript_ElderLi {
+	if((flag(FLAG_SYS_STARTER_GET) == TRUE) && flag(FLAG_START_KIT) == TRUE){
+		lockall
+		applymovement(1, PTInterior_Movement_ElderLi)
+		waitmovement(1)
+		msgbox(PTInterior_Text_ElderLiCongrats, MSGBOX_DEFAULT)
+		releaseall
+		end
+	}elif(flag(FLAG_SYS_STARTER_GET) == TRUE){
+		lockall
+		setflag(FLAG_SYS_POKEMON_GET)
+		clearflag(FLAG_TEMP_HIDE_FOLLOWER)
+		applymovement(1, PTInterior_Movement_ElderLi)
+		waitmovement(1)
+		msgbox(PTInterior_Text_ElderLiCongrats, MSGBOX_DEFAULT)
+		applymovement(1, PTInterior_Movement_Congrats)
+		waitmovement(1)
+		setrespawn(HEAL_LOCATION_TEST_AREA)
+		setflag(FLAG_START_KIT)
+		releaseall
+		end
+	}elif(flag(FLAG_SYS_STARTER_GET) == FALSE){
+		setvar(VAR_PT_STATE, 4)
+		lockall
+	    msgbox(PTInterior_Text_ElderLiAreReady, MSGBOX_YESNO)
+	    if(var(VAR_RESULT) == YES){
+		    goto(PTInterior_EventScript_GoToPT)
+	    }
+	    elif(var(VAR_RESULT) == NO){
+		    goto(ProvingTrial_EventScript_RejectPT)
+	    }
+	    releaseall
+	    end
+	}elif(flag(FLAG_START_KIT) == TRUE && flag(FLAG_SYS_STARTER_GET) == FALSE) {
+        lockall
+        msgbox(ProvingTrial_Text_HaveDone, MSGBOX_DEFAULT)
+        releaseall
+        end
+    }
+}
+
+script ProvingTrial_EventScript_RejectPT {
+    msgbox(ProvingTrial_Text_AllHave, MSGBOX_DEFAULT)
+    givemon(SPECIES_APPLIN, 3)
+    givemon(SPECIES_POLTCHAGEIST, 3)
+    giveitem(ITEM_POKE_BALL, 2)
+    giveitem(ITEM_POTION, 1)
+    removemoney(2000)
+    setflag(FLAG_SYS_POKEMON_GET)
+    setflag(FLAG_START_KIT)
+    releaseall
+    end
+}
+
+text ProvingTrial_Text_AllHave {
+    format("Oh?... In that case I suppose I can give you what was to be my lunch and some trinkets to begin your Journey with.")
+}
+
+text ProvingTrial_Text_HaveDone {
+    format("You have rejected what was offered and I have done all I can to aide you.")
+}

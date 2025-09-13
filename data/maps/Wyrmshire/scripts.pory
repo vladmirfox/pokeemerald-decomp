@@ -1,0 +1,21 @@
+mapscripts Wyrmshire_MapScripts {
+    
+}
+
+script Wyrmshire_EventScript_ShouldDo {
+    lock
+    msgbox(Wyrmshire_Text_ShouldDo, MSGBOX_DEFAULT)
+    applymovement(OBJ_EVENT_ID_PLAYER, Wyrmshire_Movement_ShouldDo)
+    waitmovement(0)
+    release
+    end
+}
+
+text Wyrmshire_Text_ShouldDo {
+    format("I should do the Proving Trial and get a Starter.")
+}
+
+movement Wyrmshire_Movement_ShouldDo {
+    face_up
+    walk_up
+}

@@ -34,7 +34,8 @@
     "gMapGroup_IndoorRoute123",
     "gMapGroup_IndoorRoute119",
     "gMapGroup_IndoorRoute124",
-    "gMapGroup_IndoorTestArea"
+    "gMapGroup_IndoorTestArea",
+    "gMapGroup_IndoorWyrmshire"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -101,7 +102,12 @@
     "TestAreaPTA3",
     "TestAreaPTA4",
     "TestAreaCity",
-    "TestAreaForest"
+    "TestAreaForest",
+    "Wyrmshire",
+    "ProvingGroundA1",
+    "ProvingGroundA2",
+    "ProvingGroundA3",
+    "ProvingGroundA4"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -634,5 +640,10 @@
     "TestAreaPlayerHome",
     "TestAreaPlayerHomeFloor2",
     "TestAreaPTInterior"
+  ],
+  "gMapGroup_IndoorWyrmshire": [
+    "AspirantDorms",
+    "AspirantDormsF2",
+    "ProvingTrial"
   ]
 }

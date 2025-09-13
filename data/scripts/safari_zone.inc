@@ -16,7 +16,7 @@ PT_EventScript_OutOfBallsMidBattle::
 	setvar VAR_PT_STATE, 3
 	setflag FLAG_SYS_STARTER_GET
 	special ExitSafariMode
-	setwarp MAP_TEST_AREA_PTINTERIOR, 3, 1
+	setwarp MAP_PROVING_TRIAL, 3, 1
 	releaseall
 	end
 
@@ -25,7 +25,7 @@ PT_EventScript_Exit::
 	setvar VAR_PT_STATE, 3
 	setflag FLAG_SYS_STARTER_GET
 	special ExitSafariMode
-	warp MAP_TEST_AREA_PTINTERIOR, 3, 1
+	warp MAP_PROVING_TRIAL, 3, 1
 	waitstate
 	//releaseall
 	end

@@ -192,6 +192,12 @@
       "map": "MAP_TEST_AREA",
       "x": 32,
       "y": 23
+    },
+    {
+      "id": "HEAL_LOCATION_TEST_AREA_2",
+      "map": "MAP_TEST_AREA",
+      "x": 20,
+      "y": 20
     }
   ]
 }

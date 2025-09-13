@@ -1,0 +1,111 @@
+{
+  "id": "MAP_ASPIRANT_DORMS",
+  "name": "AspirantDorms",
+  "layout": "LAYOUT_ASPIRANT_DORMS",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_WYRMSHIRE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "x": 5,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "AspirantDorms_EventScript_Rival",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 5,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_WYRMSHIRE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_WYRMSHIRE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_ASPIRANT_DORMS_F2",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_WYRMSHIRE_STATE",
+      "var_value": "0",
+      "script": "AspirantDorms_EventScript_HasSlept"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_WYRMSHIRE_STATE",
+      "var_value": "0",
+      "script": "AspirantDorms_EventScript_HasSlept"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_WYRMSHIRE_STATE",
+      "var_value": "0",
+      "script": "AspirantDorms_EventScript_HasSlept"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_WYRMSHIRE_STATE",
+      "var_value": "0",
+      "script": "AspirantDorms_EventScript_HasSlept"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_WYRMSHIRE_STATE",
+      "var_value": "0",
+      "script": "AspirantDorms_EventScript_BlockTV"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_WYRMSHIRE_STATE",
+      "var_value": "0",
+      "script": "AspirantDorms_EventScript_BlockTV"
+    }
+  ],
+  "bg_events": []
+}

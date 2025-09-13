@@ -236,7 +236,7 @@
 #define VAR_SOOTOPOLIS_WALLACE_STATE                     0x40D8
 #define VAR_HAS_TALKED_TO_SEAFLOOR_CAVERN_ENTRANCE_GRUNT 0x40D9
 #define VAR_REGISTER_BIRCH_STATE                         0x40DA
-#define VAR_UNUSED_0x40DB                                0x40DB // Unused Var
+#define VAR_DORMS_STATE                                  0x40DB // Starter Dorms STATE var. Manages HasSlept and sprite visability.
 #define VAR_UNUSED_0x40DC                                0x40DC // Unused Var
 #define VAR_GIFT_PICHU_SLOT                              0x40DD
 #define VAR_GIFT_UNUSED_1                                0x40DE // Var is written to, but never read
@@ -264,15 +264,15 @@
 #define VAR_ROXANNE_CALL_STEP_COUNTER                    0x40F4
 #define VAR_SCOTT_BF_CALL_STEP_COUNTER                   0x40F5
 #define VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER             0x40F6
-#define VAR_UNUSED_0x40F7                                0x40F7 // Unused Var
-#define VAR_UNUSED_0x40F8                                0x40F8 // Unused Var
-#define VAR_UNUSED_0x40F9                                0x40F9 // Unused Var
-#define VAR_UNUSED_0x40FA                                0x40FA // Unused Var
-#define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
-#define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
-#define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
-#define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
-#define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
+#define VAR_WYRMSHIRE_STATE                              0x40F7 // STATE var for Starter Town
+#define VAR_HANAKA_STATE                                 0x40F8 // STATE var for Hanaka Village (meet Prof.)
+#define VAR_UNUSED_0x40F9                                0x40F9 // Unused Var Marina?
+#define VAR_UNUSED_0x40FA                                0x40FA // Unused Var Ironforge?
+#define VAR_UNUSED_0x40FB                                0x40FB // Unused Var Valorite?
+#define VAR_UNUSED_0x40FC                                0x40FC // Unused Var Mytheria?
+#define VAR_UNUSED_0x40FD                                0x40FD // Unused Var Fortuna?
+#define VAR_UNUSED_0x40FE                                0x40FE // Unused Var Cynderhail?
+#define VAR_UNUSED_0x40FF                                0x40FF // Unused Var Wyrmspire?
 
 #define VARS_END                                         0x40FF
 #define VARS_COUNT                                       (VARS_END - VARS_START + 1)

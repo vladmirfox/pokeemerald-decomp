@@ -1,0 +1,51 @@
+mapscripts AspirantDorms_MapScripts {
+    
+}
+
+script AspirantDorms_EventScript_HasSlept {
+    if(var(VAR_WYRMSHIRE_STATE) != 0){
+        return
+    }elif(var(VAR_WYRMSHIRE_STATE) == 0){
+        lockall
+        msgbox(AspirantDorms_Text_ShouldSleep, MSGBOX_DEFAULT)
+        applymovement(OBJ_EVENT_ID_PLAYER, AspirantDorms_Movement_Stop)
+        waitmovement(0)
+        releaseall
+        end
+    }
+}
+
+script AspirantDorms_EventScript_Rival {
+    lockall
+    faceplayer
+    msgbox(AspirantDorms_Text_WhatThinking, MSGBOX_DEFAULT)
+    releaseall
+    end
+}
+
+script AspirantDorms_EventScript_BlockTV {
+    lockall
+    msgbox(AspirantDorms_Text_WhatThinking, MSGBOX_DEFAULT)
+    applymovement(OBJ_EVENT_ID_PLAYER, AspirantDorms_Movement_BlockTV)
+    waitmovement(0)
+    releaseall
+    end
+}
+
+text AspirantDorms_Text_ShouldSleep {
+    format("Hmm... I should introduce myself to the others and then sleep so I'm ready for the Proving Trial tomorrow.")
+}
+
+text AspirantDorms_Text_WhatThinking {
+    format("Hey Dweb! What do you think your doing!\nIt's CLEAR I'm the superior Applicant here soo just leave me alone until we're able to settle this tomorrow like Trainers.\l.....\lGo pester the OTHER dweb Upstairs if you insist on bothering someone.")
+}
+
+movement AspirantDorms_Movement_Stop {
+    face_up
+	walk_up
+}
+
+movement AspirantDorms_Movement_BlockTV {
+    face_right
+    walk_right
+}

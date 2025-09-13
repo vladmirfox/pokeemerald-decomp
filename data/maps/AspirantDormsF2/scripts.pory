@@ -1,0 +1,84 @@
+mapscripts AspirantDormsF2_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: AspirantDormsF2_EventScript_AideSleeping
+}
+
+script AspirantDormsF2_EventScript_AideSleeping {
+    if(flag(FLAG_AIDE_AWAKE) == TRUE){
+        //clearflag(FLAG_AIDE_ASLEEP)
+        return
+        }else{
+            setflag(FLAG_AIDE_ASLEEP)
+            return
+        }
+}
+
+script AspirantDormsF2_EventScript_Aide {
+    lockall
+    msgbox(AspirantDormsF2_Text_AideSleep,MSGBOX_DEFAULT)
+    releaseall
+    end
+}
+
+script AspirantDormsF2_EventScript_AideBack {
+    lock
+    msgbox(AspirantDormsF2_Text_AideNerves, MSGBOX_DEFAULT)
+    applymovement(1, AspirantDormsF2_Movement_Shock)
+    waitmovement(1)
+    msgbox(AspirantDormsF2_Text_AideHello,MSGBOX_DEFAULT)
+    applymovement(1, AspirantDormsF2_Movement_AideBack)
+    waitmovement(1)
+    setvar(VAR_DORMS_STATE, 1)
+    setflag(FLAG_AIDE_AWAKE)
+    clearflag(FLAG_AIDE_ASLEEP)
+    releaseall
+    end
+}
+
+script AspirantDormsF2_EventScript_AideSide {
+    lock
+    msgbox(AspirantDormsF2_Text_AideNerves, MSGBOX_DEFAULT)
+    applymovement(1, AspirantDormsF2_Movement_Shock)
+    waitmovement(1)
+    msgbox(AspirantDormsF2_Text_AideHello,MSGBOX_DEFAULT)
+    applymovement(1, AspirantDormsF2_Movement_AideSide)
+    waitmovement(1)
+    setvar(VAR_DORMS_STATE, 1)
+    setflag(FLAG_AIDE_AWAKE)
+    clearflag(FLAG_AIDE_ASLEEP)
+    releaseall
+    end
+}
+
+text AspirantDormsF2_Text_AideNerves {
+    format("OK... Lets see I've read the primer on the Clans and I've reviewed my Items in the PC. Now I guess its time for bed so I'm well rested for tomorrow.")
+}
+
+text AspirantDormsF2_Text_AideHello {
+    format("Oh, Hello! I'm Aiden and I'm hoping to get a Starter Pokemon and work under Professor Popula in her research concerning Bond Phenomina.")
+}
+
+text AspirantDormsF2_Text_AideSleep {
+    format("Zzzzzzzz....\nZzzzzzzz....")
+}
+
+movement AspirantDormsF2_Movement_Shock {
+    emote_exclamation_mark
+    face_player
+}
+
+movement AspirantDormsF2_Movement_AideSide {
+    face_down
+    walk_down * 4
+    face_right
+    walk_right
+    face_down
+}
+
+movement AspirantDormsF2_Movement_AideBack {
+    face_right
+    walk_right * 2
+    face_down
+    walk_down * 4
+    walk_left
+    face_down
+}
