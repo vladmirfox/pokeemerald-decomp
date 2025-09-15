@@ -4600,6 +4600,46 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/ProvingGroundA2/border.bin",
       "blockdata_filepath": "data/layouts/ProvingGroundA2/map.bin"
+    },
+    {
+      "id": "LAYOUT_HANAKA_VILLAGE",
+      "name": "Hanaka_Village_Layout",
+      "width": 40,
+      "height": 22,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Hanaka_Village/border.bin",
+      "blockdata_filepath": "data/layouts/Hanaka_Village/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE1",
+      "name": "Route1_Layout",
+      "width": 20,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Route1/border.bin",
+      "blockdata_filepath": "data/layouts/Route1/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_LAB",
+      "name": "PokemonLab_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/PokemonLab/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_DAYCARE",
+      "name": "Daycare_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonDayCare",
+      "border_filepath": "data/layouts/Daycare/border.bin",
+      "blockdata_filepath": "data/layouts/Daycare/map.bin"
     }
   ]
 }

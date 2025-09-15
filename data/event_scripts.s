@@ -1196,3 +1196,11 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/ProvingGroundA3/scripts.inc"
 
 	.include "data/maps/ProvingTrial/scripts.inc"
+
+	.include "data/maps/Hanaka_Village/scripts.inc"
+
+	.include "data/maps/Route1/scripts.inc"
+
+	.include "data/maps/Daycare/scripts.inc"
+
+	.include "data/maps/PokemonLab/scripts.inc"

@@ -35,7 +35,8 @@
     "gMapGroup_IndoorRoute119",
     "gMapGroup_IndoorRoute124",
     "gMapGroup_IndoorTestArea",
-    "gMapGroup_IndoorWyrmshire"
+    "gMapGroup_IndoorWyrmshire",
+    "gMapGroup_IndoorHanaka"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -107,7 +108,9 @@
     "ProvingGroundA1",
     "ProvingGroundA2",
     "ProvingGroundA3",
-    "ProvingGroundA4"
+    "ProvingGroundA4",
+    "Route1",
+    "Hanaka_Village"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -645,5 +648,9 @@
     "AspirantDorms",
     "AspirantDormsF2",
     "ProvingTrial"
+  ],
+  "gMapGroup_IndoorHanaka": [
+    "PokemonLab",
+    "Daycare"
   ]
 }

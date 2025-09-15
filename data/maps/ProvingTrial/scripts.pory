@@ -47,6 +47,11 @@ script ProvingTrial_EventScript_ElderLi {
 		msgbox(PTInterior_Text_ElderLiCongrats, MSGBOX_DEFAULT)
 		releaseall
 		end
+	}elif(flag(FLAG_START_KIT) == TRUE && flag(FLAG_PT_REJECT) == TRUE) {
+        lockall
+        msgbox(ProvingTrial_Text_HaveDone, MSGBOX_DEFAULT)
+        releaseall
+        end
 	}elif(flag(FLAG_SYS_STARTER_GET) == TRUE){
 		lockall
 		setflag(FLAG_SYS_POKEMON_GET)
@@ -54,13 +59,17 @@ script ProvingTrial_EventScript_ElderLi {
 		applymovement(1, PTInterior_Movement_ElderLi)
 		waitmovement(1)
 		msgbox(PTInterior_Text_ElderLiCongrats, MSGBOX_DEFAULT)
+		giveitem(ITEM_POKE_BALL, 10)
+		giveitem(ITEM_POTION, 2)
 		applymovement(1, PTInterior_Movement_Congrats)
 		waitmovement(1)
 		setrespawn(HEAL_LOCATION_TEST_AREA)
+		setvar(VAR_WYRMSHIRE_STATE, 2)
 		setflag(FLAG_START_KIT)
 		releaseall
 		end
-	}elif(flag(FLAG_SYS_STARTER_GET) == FALSE){
+	}
+	elif(flag(FLAG_SYS_STARTER_GET) == FALSE){
 		setvar(VAR_PT_STATE, 4)
 		lockall
 	    msgbox(PTInterior_Text_ElderLiAreReady, MSGBOX_YESNO)
@@ -72,12 +81,7 @@ script ProvingTrial_EventScript_ElderLi {
 	    }
 	    releaseall
 	    end
-	}elif(flag(FLAG_START_KIT) == TRUE && flag(FLAG_SYS_STARTER_GET) == FALSE) {
-        lockall
-        msgbox(ProvingTrial_Text_HaveDone, MSGBOX_DEFAULT)
-        releaseall
-        end
-    }
+	}
 }
 
 script ProvingTrial_EventScript_RejectPT {
@@ -87,7 +91,9 @@ script ProvingTrial_EventScript_RejectPT {
     giveitem(ITEM_POKE_BALL, 2)
     giveitem(ITEM_POTION, 1)
     removemoney(2000)
+	setvar(VAR_WYRMSHIRE_STATE, 2)
     setflag(FLAG_SYS_POKEMON_GET)
+	setflag(FLAG_PT_REJECT)
     setflag(FLAG_START_KIT)
     releaseall
     end

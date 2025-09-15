@@ -75,13 +75,14 @@ ProvingTrial_EventScript_GoToPT::
 ProvingTrial_EventScript_ElderLi::
 # 43 "data/maps/ProvingTrial/scripts.pory"
 	goto_if_set FLAG_SYS_STARTER_GET, ProvingTrial_EventScript_ElderLi_10
-ProvingTrial_EventScript_ElderLi_9:
+ProvingTrial_EventScript_ElderLi_8:
 # 50 "data/maps/ProvingTrial/scripts.pory"
-	goto_if_set FLAG_SYS_STARTER_GET, ProvingTrial_EventScript_ElderLi_2
-# 63 "data/maps/ProvingTrial/scripts.pory"
-	goto_if_unset FLAG_SYS_STARTER_GET, ProvingTrial_EventScript_ElderLi_3
-# 75 "data/maps/ProvingTrial/scripts.pory"
-	goto_if_set FLAG_START_KIT, ProvingTrial_EventScript_ElderLi_5
+	goto_if_set FLAG_START_KIT, ProvingTrial_EventScript_ElderLi_7
+ProvingTrial_EventScript_ElderLi_6:
+# 55 "data/maps/ProvingTrial/scripts.pory"
+	goto_if_set FLAG_SYS_STARTER_GET, ProvingTrial_EventScript_ElderLi_3
+# 72 "data/maps/ProvingTrial/scripts.pory"
+	goto_if_unset FLAG_SYS_STARTER_GET, ProvingTrial_EventScript_ElderLi_4
 	return
 
 ProvingTrial_EventScript_ElderLi_1:
@@ -101,104 +102,114 @@ ProvingTrial_EventScript_ElderLi_2:
 # 51 "data/maps/ProvingTrial/scripts.pory"
 	lockall
 # 52 "data/maps/ProvingTrial/scripts.pory"
-	setflag FLAG_SYS_POKEMON_GET
+	msgbox ProvingTrial_Text_HaveDone, MSGBOX_DEFAULT
 # 53 "data/maps/ProvingTrial/scripts.pory"
-	clearflag FLAG_TEMP_HIDE_FOLLOWER
-# 54 "data/maps/ProvingTrial/scripts.pory"
-	applymovement 1, PTInterior_Movement_ElderLi
-# 55 "data/maps/ProvingTrial/scripts.pory"
-	waitmovement 1
-# 56 "data/maps/ProvingTrial/scripts.pory"
-	msgbox PTInterior_Text_ElderLiCongrats, MSGBOX_DEFAULT
-# 57 "data/maps/ProvingTrial/scripts.pory"
-	applymovement 1, PTInterior_Movement_Congrats
-# 58 "data/maps/ProvingTrial/scripts.pory"
-	waitmovement 1
-# 59 "data/maps/ProvingTrial/scripts.pory"
-	setrespawn HEAL_LOCATION_TEST_AREA
-# 60 "data/maps/ProvingTrial/scripts.pory"
-	setflag FLAG_START_KIT
-# 61 "data/maps/ProvingTrial/scripts.pory"
 	releaseall
 	end
 
 ProvingTrial_EventScript_ElderLi_3:
-# 64 "data/maps/ProvingTrial/scripts.pory"
-	setvar VAR_PT_STATE, 4
-# 65 "data/maps/ProvingTrial/scripts.pory"
+# 56 "data/maps/ProvingTrial/scripts.pory"
 	lockall
+# 57 "data/maps/ProvingTrial/scripts.pory"
+	setflag FLAG_SYS_POKEMON_GET
+# 58 "data/maps/ProvingTrial/scripts.pory"
+	clearflag FLAG_TEMP_HIDE_FOLLOWER
+# 59 "data/maps/ProvingTrial/scripts.pory"
+	applymovement 1, PTInterior_Movement_ElderLi
+# 60 "data/maps/ProvingTrial/scripts.pory"
+	waitmovement 1
+# 61 "data/maps/ProvingTrial/scripts.pory"
+	msgbox PTInterior_Text_ElderLiCongrats, MSGBOX_DEFAULT
+# 62 "data/maps/ProvingTrial/scripts.pory"
+	giveitem ITEM_POKE_BALL, 10
+# 63 "data/maps/ProvingTrial/scripts.pory"
+	giveitem ITEM_POTION, 2
+# 64 "data/maps/ProvingTrial/scripts.pory"
+	applymovement 1, PTInterior_Movement_Congrats
+# 65 "data/maps/ProvingTrial/scripts.pory"
+	waitmovement 1
 # 66 "data/maps/ProvingTrial/scripts.pory"
-	msgbox PTInterior_Text_ElderLiAreReady, MSGBOX_YESNO
+	setrespawn HEAL_LOCATION_TEST_AREA
 # 67 "data/maps/ProvingTrial/scripts.pory"
-	compare VAR_RESULT, YES
-	goto_if_eq ProvingTrial_EventScript_ElderLi_14
-# 70 "data/maps/ProvingTrial/scripts.pory"
-	compare VAR_RESULT, NO
-	goto_if_eq ProvingTrial_EventScript_ElderLi_15
-ProvingTrial_EventScript_ElderLi_13:
-# 73 "data/maps/ProvingTrial/scripts.pory"
+	setvar VAR_WYRMSHIRE_STATE, 2
+# 68 "data/maps/ProvingTrial/scripts.pory"
+	setflag FLAG_START_KIT
+# 69 "data/maps/ProvingTrial/scripts.pory"
 	releaseall
 	end
 
 ProvingTrial_EventScript_ElderLi_4:
-# 76 "data/maps/ProvingTrial/scripts.pory"
+# 73 "data/maps/ProvingTrial/scripts.pory"
+	setvar VAR_PT_STATE, 4
+# 74 "data/maps/ProvingTrial/scripts.pory"
 	lockall
-# 77 "data/maps/ProvingTrial/scripts.pory"
-	msgbox ProvingTrial_Text_HaveDone, MSGBOX_DEFAULT
-# 78 "data/maps/ProvingTrial/scripts.pory"
+# 75 "data/maps/ProvingTrial/scripts.pory"
+	msgbox PTInterior_Text_ElderLiAreReady, MSGBOX_YESNO
+# 76 "data/maps/ProvingTrial/scripts.pory"
+	compare VAR_RESULT, YES
+	goto_if_eq ProvingTrial_EventScript_ElderLi_14
+# 79 "data/maps/ProvingTrial/scripts.pory"
+	compare VAR_RESULT, NO
+	goto_if_eq ProvingTrial_EventScript_ElderLi_15
+ProvingTrial_EventScript_ElderLi_13:
+# 82 "data/maps/ProvingTrial/scripts.pory"
 	releaseall
 	end
 
-ProvingTrial_EventScript_ElderLi_5:
-# 75 "data/maps/ProvingTrial/scripts.pory"
-	goto_if_unset FLAG_SYS_STARTER_GET, ProvingTrial_EventScript_ElderLi_4
-	return
+ProvingTrial_EventScript_ElderLi_7:
+# 50 "data/maps/ProvingTrial/scripts.pory"
+	goto_if_set FLAG_PT_REJECT, ProvingTrial_EventScript_ElderLi_2
+	goto ProvingTrial_EventScript_ElderLi_6
 
 ProvingTrial_EventScript_ElderLi_10:
 # 43 "data/maps/ProvingTrial/scripts.pory"
 	goto_if_set FLAG_START_KIT, ProvingTrial_EventScript_ElderLi_1
-	goto ProvingTrial_EventScript_ElderLi_9
+	goto ProvingTrial_EventScript_ElderLi_8
 
 ProvingTrial_EventScript_ElderLi_14:
-# 68 "data/maps/ProvingTrial/scripts.pory"
+# 77 "data/maps/ProvingTrial/scripts.pory"
 	goto PTInterior_EventScript_GoToPT
 	goto ProvingTrial_EventScript_ElderLi_13
 
 ProvingTrial_EventScript_ElderLi_15:
-# 71 "data/maps/ProvingTrial/scripts.pory"
+# 80 "data/maps/ProvingTrial/scripts.pory"
 	goto ProvingTrial_EventScript_RejectPT
 	goto ProvingTrial_EventScript_ElderLi_13
 
 
 ProvingTrial_EventScript_RejectPT::
-# 84 "data/maps/ProvingTrial/scripts.pory"
-	msgbox ProvingTrial_Text_AllHave, MSGBOX_DEFAULT
-# 85 "data/maps/ProvingTrial/scripts.pory"
-	givemon SPECIES_APPLIN, 3
-# 86 "data/maps/ProvingTrial/scripts.pory"
-	givemon SPECIES_POLTCHAGEIST, 3
-# 87 "data/maps/ProvingTrial/scripts.pory"
-	giveitem ITEM_POKE_BALL, 2
 # 88 "data/maps/ProvingTrial/scripts.pory"
-	giveitem ITEM_POTION, 1
+	msgbox ProvingTrial_Text_AllHave, MSGBOX_DEFAULT
 # 89 "data/maps/ProvingTrial/scripts.pory"
-	removemoney 2000
+	givemon SPECIES_APPLIN, 3
 # 90 "data/maps/ProvingTrial/scripts.pory"
-	setflag FLAG_SYS_POKEMON_GET
+	givemon SPECIES_POLTCHAGEIST, 3
 # 91 "data/maps/ProvingTrial/scripts.pory"
-	setflag FLAG_START_KIT
+	giveitem ITEM_POKE_BALL, 2
 # 92 "data/maps/ProvingTrial/scripts.pory"
+	giveitem ITEM_POTION, 1
+# 93 "data/maps/ProvingTrial/scripts.pory"
+	removemoney 2000
+# 94 "data/maps/ProvingTrial/scripts.pory"
+	setvar VAR_WYRMSHIRE_STATE, 2
+# 95 "data/maps/ProvingTrial/scripts.pory"
+	setflag FLAG_SYS_POKEMON_GET
+# 96 "data/maps/ProvingTrial/scripts.pory"
+	setflag FLAG_PT_REJECT
+# 97 "data/maps/ProvingTrial/scripts.pory"
+	setflag FLAG_START_KIT
+# 98 "data/maps/ProvingTrial/scripts.pory"
 	releaseall
 	end
 
 
 ProvingTrial_Text_AllHave::
-# 96 "data/maps/ProvingTrial/scripts.pory"
+# 102 "data/maps/ProvingTrial/scripts.pory"
 	.string "Oh?... In that case I suppose I can give\n"
 	.string "you what was to be my lunch and some\l"
 	.string "trinkets to begin your Journey with.$"
 
 ProvingTrial_Text_HaveDone::
-# 100 "data/maps/ProvingTrial/scripts.pory"
+# 106 "data/maps/ProvingTrial/scripts.pory"
 	.string "You have rejected what was offered and\n"
 	.string "I have done all I can to aide you.$"
