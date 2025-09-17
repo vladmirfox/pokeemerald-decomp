@@ -4640,6 +4640,16 @@
       "secondary_tileset": "gTileset_PokemonDayCare",
       "border_filepath": "data/layouts/Daycare/border.bin",
       "blockdata_filepath": "data/layouts/Daycare/map.bin"
+    },
+    {
+      "id": "LAYOUT_GREENSFIELD",
+      "name": "Greensfield_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Greensfield/border.bin",
+      "blockdata_filepath": "data/layouts/Greensfield/map.bin"
     }
   ]
 }
