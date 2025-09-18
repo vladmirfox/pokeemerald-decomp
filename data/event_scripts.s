@@ -1206,3 +1206,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/PokemonLab/scripts.inc"
 
 	.include "data/maps/Greensfield/scripts.inc"
+
+	.include "data/maps/Route2/scripts.inc"
+
+	.include "data/maps/Route3/scripts.inc"

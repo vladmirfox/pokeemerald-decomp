@@ -111,7 +111,9 @@
     "ProvingGroundA4",
     "Route1",
     "Hanaka_Village",
-    "Greensfield"
+    "Greensfield",
+    "Route2",
+    "Route3"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
