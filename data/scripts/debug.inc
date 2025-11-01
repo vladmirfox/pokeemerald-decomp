@@ -270,6 +270,12 @@ Debug_ShowExpansionVersion::
 Debug_ExpansionVersion:
 	.string "pokeemerald-expansion {STR_VAR_1}$"
 
+Debug_EventScript_Mining_Minigame::
+    fadescreen FADE_TO_BLACK
+    special StartMining
+	release
+	end
+
 Debug_Follower_NPC_Not_Enabled::
 	msgbox Debug_Enable_To_Use_Follower_NPCs, MSGBOX_DEFAULT
 	release

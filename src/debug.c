@@ -107,6 +107,7 @@ enum FlagsVarsDebugMenu
     DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_ENCOUNTER,
     DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_TRAINER_SEE,
     DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_BAG_USE,
+    DEBUG_UTIL_MENU_ITEM_MINING_MINIGAME,
     DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_CATCHING,
 };
 
@@ -256,6 +257,7 @@ static void DebugAction_Util_Weather(u8 taskId);
 static void DebugAction_Util_Weather_SelectId(u8 taskId);
 static void DebugAction_Util_WatchCredits(u8 taskId);
 static void DebugAction_Util_CheatStart(u8 taskId);
+static void DebugAction_Util_Mining_Minigame(u8 taskId);
 
 static void DebugAction_TimeMenu_ChangeTimeOfDay(u8 taskId);
 static void DebugAction_TimeMenu_ChangeWeekdays(u8 taskId);
@@ -370,6 +372,7 @@ extern const u8 Debug_CheckROMSpace[];
 extern const u8 Debug_BoxFilledMessage[];
 extern const u8 Debug_ShowExpansionVersion[];
 extern const u8 Debug_EventScript_EWRAMCounters[];
+extern const u8 Debug_EventScript_Mining_Minigame[];
 extern const u8 Debug_Follower_NPC_Event_Script[];
 extern const u8 Debug_Follower_NPC_Not_Enabled[];
 extern const u8 Debug_EventScript_Steven_Multi[];
@@ -652,6 +655,7 @@ static const struct DebugMenuOption sDebugMenu_Actions_Flags[] =
     [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_ENCOUNTER]     = { COMPOUND_STRING("Toggle {STR_VAR_1}Encounter OFF"),   DebugAction_ToggleFlag, DebugAction_FlagsVars_EncounterOnOff },
     [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_TRAINER_SEE]   = { COMPOUND_STRING("Toggle {STR_VAR_1}Trainer See OFF"), DebugAction_ToggleFlag, DebugAction_FlagsVars_TrainerSeeOnOff },
     [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_BAG_USE]       = { COMPOUND_STRING("Toggle {STR_VAR_1}Bag Use OFF"),     DebugAction_ToggleFlag, DebugAction_FlagsVars_BagUseOnOff },
+    [DEBUG_UTIL_MENU_ITEM_MINING_MINIGAME]         = {COMPOUND_STRING("Mining Minigame"),                    DebugAction_Util_Mining_Minigame},
     [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_CATCHING]      = { COMPOUND_STRING("Toggle {STR_VAR_1}Catching OFF"),    DebugAction_ToggleFlag, DebugAction_FlagsVars_CatchingOnOff },
     { NULL }
 };
@@ -2575,6 +2579,11 @@ static void DebugAction_Give_Pokemon_SelectDynamaxLevel(u8 taskId)
         FreeAndDestroyMonIconSprite(&gSprites[gTasks[taskId].tSpriteId]);
         DebugAction_DestroyExtraWindow(taskId);
     }
+}
+
+static void DebugAction_Util_Mining_Minigame(u8 taskId)
+{
+    Debug_DestroyMenu_Full_Script(taskId, Debug_EventScript_Mining_Minigame);
 }
 
 static void Debug_Display_StatInfo(const u8* text, u32 stat, u32 value, u32 digit, u8 windowId, u32 maxValue)
